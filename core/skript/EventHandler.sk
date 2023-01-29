@@ -1,1 +1,18 @@
+options:
+    title: <##008312>&lUNDEADBOX
 
+
+on first join:
+    set join message to "&8[&a✓&8] &a%player% &7has joined the server! &8[&e%size of all players%&8]"
+    
+on join:
+    set join message to "&8[&a✓&8] &a%player% &7has joined the server!"
+
+on quit:
+    set quit message to "&8[&c-&8] &c%player% &7has left the server!"
+
+on death of player:
+    if attacker is player:
+        set death message to "{@title} &8● &c%victim% &7was murdered by &c%attacker%"
+    else:
+        set death message to "{@title} &8● &c%victim% &7was killed."
