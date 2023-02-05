@@ -15,7 +15,7 @@ on quit:
     set quit message to "&8[&c-&8] &c%player% &7has left the server!"
 
 on death of player:
-    if attacker is player:
+    if attacker is a player:
         set death message to "{@title} &8● {@secondary}%victim% &7was murdered by {@secondary}%attacker%"
     else:
         set death message to "{@title} &8● {@secondary}%victim% &7was killed."
