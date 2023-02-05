@@ -1,1 +1,20 @@
-
+options:
+    title: <##00AE18>&lUNDEADBOX
+    secondary: <##65FFB1>
+    tertiary: &7
+	
+function hexfix(f: text) :: text:
+    return formatted (join (regex split (join (regex split {_f} by "(?<=(&##([a-fA-f0-9]{6})))") by ">") by "&##(?=([a-fA-f0-9]{6}))") by "<##")
+on join:    
+    set title of player's scoreboard to "    {@title}    "
+    set line 15 of player's scoreboard to "&f"
+    set line 11 of player's scoreboard to "&f"
+    set line 8 of player's scoreboard to "&f"
+    while player is online:
+        set line 14 of player's scoreboard to "❖ {@secondary}Online: {@tertiary}%size of all players%"
+        set line 13 of player's scoreboard to "❖ {@secondary}Reset: {@tertiary}None"
+        set line 12 of player's scoreboard to "❖ {@secondary}TPS: {@tertiary}%first element of tps%"
+        set line 10 of player's scoreboard to "❖ {@secondary}Kills: {@tertiary}%{kills::%player's uuid%} ? 0%"
+        set line 9 of player's scoreboard to "❖ {@secondary}Deaths: {@tertiary}%{deaths::%player's uuid%} ? 0%"
+        wait 1 second
+		
