@@ -1,1 +1,18 @@
+options:
+    title: <##00AE18>&lUNDEADBOX
+    secondary: <##65FFB1>
+    tertiary: &7
+	
+function hexfix(f: text) :: text:
+    return formatted (join (regex split (join (regex split {_f} by "(?<=(&##([a-fA-f0-9]{6})))") by ">") by "&##(?=([a-fA-f0-9]{6}))") by "<##")
 
+on join:    
+    set player's tablist header to "%nl% {@title}  %nl%"
+    set player's tablist footer to "%nl% {@tertiary}Enjoy! %nl%"
+    while player is online:
+        if player's group is not "default":
+            set player's tablist name to "%hexfix(player's prefix)%&f%player's displayname%"
+        else:
+            set player's tablist name to "&7%player's displayname%"
+        wait 2 second
+		
